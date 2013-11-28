@@ -1,0 +1,43 @@
+#content {
+	width: 750px; 
+	height: 500px;
+	margin: 0 auto;
+}
+
+#content #chat #messages {
+	width: 500px; 
+}
+
+#content #users {
+	width: 200px; 
+	height: 300px;
+	padding:0;
+	margin:0 0 0 20px;
+	list-style:none;
+	border:1px solid black;
+}
+
+#content #users li {
+	padding-left:10px;
+	width:95%;
+	height:20px;
+}
+
+#content #users li.odd {
+	background-color:#ccc;
+}
+
+#content #chat #messages {
+	min-height: 300px; 
+	margin: 0 0 20px 0; 
+	border: solid 1px #999; 
+	overflow-y: scroll;
+}
+
+#content #chat, #content #users {
+	float:left;
+}
+
+.controls input#field {
+	width: 86%;
+}

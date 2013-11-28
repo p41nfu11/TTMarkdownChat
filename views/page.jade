@@ -12,8 +12,9 @@ html(ng-app="tchat")
 	body(ng-controller='TchatCtrl')
 		.container
 			.row
-				.col-md-8(style="height: 400px;")
-					div(ng-repeat="msg in messages") {{msg}}
+				.col-md-8(style="height: 350px;")
+					div(ng-repeat="msg in messages") 
+						div(ng-bind-html="msg")
 				ul.col-md-4
 					li(ng-repeat="user in users" ng-class-odd="'odd'") {{user.name}}		
 			.row	
@@ -21,7 +22,7 @@ html(ng-app="tchat")
 					label(for="text") Text
 					.col-md-12
 						.col-md-6
-							textarea(,id="text", class="form-control", rows="25", placeholder="What's up?", ng-model="message", ng-change="updateFormatted()", required)
+							textarea(,id="text", class="form-control", rows="10", placeholder="What's up?", ng-model="message", ng-change="updateFormatted()", required)
 						.col-md-6
 							div(ng-bind-html="formattedText") 
 			.row

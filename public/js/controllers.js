@@ -43,9 +43,9 @@ app.controller("TchatCtrl", function ($scope, socket, $sce) {
 	function messageToDisplay(data) {
 		var message = "";
 		if(data.user) {
-			message = data.user.name + " : ";
+			message = data.user.name + " : \n";
 		}
 		message += data.message;		
-		return message;
+		return $sce.trustAsHtml(markdown.toHTML(message));
 	}
 });

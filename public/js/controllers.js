@@ -2,7 +2,7 @@
 
 /* Controllers */
 
-function TchatCtrl($scope, socket, ) {
+app.controller("TchatCtrl", function ($scope, socket, $sce) {
 
 	$scope.messages = [];
 	$scope.users = [];	
@@ -36,6 +36,10 @@ function TchatCtrl($scope, socket, ) {
 	    $scope.message = '';
 	}
 
+	$scope.updateFormatted = function(){
+		$scope.formattedText = $sce.trustAsHtml(markdown.toHTML($scope.message));
+	}
+
 	function messageToDisplay(data) {
 		var message = "";
 		if(data.user) {
@@ -44,4 +48,4 @@ function TchatCtrl($scope, socket, ) {
 		message += data.message;		
 		return message;
 	}
-}
+});
